@@ -22,7 +22,7 @@ INSERT INTO Funcionario
 	;
 
 INSERT INTO Medicamento
-  	(id, des, qt, un, formato, categoria, preco, stock, lab, receita, local)
+  	(id, des, qt, un, formato, categoria, preco, stock, lab, receita, pos)
   	VALUES
 		(1,'Ben-U-Ron 500', 20,'un','granulado','Analgésico',2.51, 21, 'Laboratório do Rio Ave', 'N', 'A12'),
 		(2,'Claritromicina',14,'un','comprimido','Antibiótico',4.99, 21, 'Laboratório do Rio Ave', 'N', 'H35'),
@@ -33,11 +33,11 @@ INSERT INTO Medicamento
     ;
 
 INSERT INTO Fatura -- tratar das datas
-	(id, dataF, dataS, pontos_R, pontos_U, desconto, total, id_func, id_c)
+	(id, data_f, data_s, pontos_r, pontos_u, desconto, total, id_func, id_c)
 	VALUES 
-		(1,'2017-12-10 02:23:32','2017-12-27 02:22:25',0,0,0,4.99, 2,3),
-		(2,'2017-12-12 01:43:02','2017-12-27 01:35:39',10,0,0,12.83, 2,2),
-		(3,'2017-12-24 07:11:01','2017-12-27 06:53:51',25,0,0,21.47, 3,1), -- morto
+		(1,'2017-12-10 08:08:32','2017-12-27 08:05:25',0,0,0,4.99, 2,3),
+		(2,'2017-12-12 08:13:02','2017-12-27 08:06:45',10,0,0,12.83, 2,2),
+		(3,'2017-12-24 08:41:01','2017-12-27 08:07:00',25,0,0,21.47, 3,1), -- morto
 		(4,'2017-12-25 12:32:02','2017-12-27 12:00:32',0,0,0,2.51, 3,3),
 		(5,'2017-12-29 23:51:51','2017-12-27 23:47:34',40,0,0,33.36, 3,3),
 		(6,'2017-12-30 15:51:32','2017-12-27 15:30:19',0,0,0,4.32, 3,2),
@@ -79,7 +79,7 @@ INSERT INTO Fatura_Med
         (14,3,1,4.32,4.32),
         (14,4,1,8.51,8.51),
         (14,5,1,10.20,10.20),
-        (14,5,1,16.45,16.45),
+        (14,6,1,16.45,16.45),
         (15,6,1,16.45,16.45),
         (15,1,1,2.51,2.51)
 	;
@@ -104,8 +104,8 @@ INSERT INTO Fatura_Receita
         (14,104),
         (14,180),
         (14,6),
-        (15,12)
-        
+        (15,12)        
 	;
     
-    
+
+
