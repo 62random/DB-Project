@@ -3,13 +3,13 @@ USE farmacia;
 INSERT INTO Cliente
 	(id, nome, nif, email, tlmv, pontos)
 	VALUES 
-		(1, 'João da Costa e Campos',  '123456789', 'jcc@proms.pt' , '912345678', 0),
-		(2, 'Josefina Vivida da Paz', '122133144', 'josefina@proms.pt', '910987654', 0),
-		(3, 'Ana Santa do Carmo', '876543298', 'saca@proms.pt','961234567', 0),
-		(4, 'Jesualdo Peza-Mor',  '564352786', 'pezamor@proms.pt', '921456876', 0),
-		(5, 'Maria da Trindade Pascoal',	'777666555', 'trindade@proms.pt', '912492054', 0),
-		(6, 'Florindo Teixo Figueirinha', '787676651', 'teixof@proms.pt', '927147962', 0),
-		(7, 'Carminho Cunha Bastos',  '543234111', 'cbastos@proms.pt', '934789246' , 0)
+		(1, 'João da Costa e Campos',  '123456789', 'jcc@gmail.pt' , '912345678', 0),
+		(2, 'Josefina Vivida da Paz', '122133144', 'josefina@hotmail.pt', '910987654', 0),
+		(3, 'Ana Santa do Carmo', '876543298', 'saca@gmail.pt','961234567', 0),
+		(4, 'Jesualdo Peza-Mor',  '564352786', 'pezamor@hotmail.pt', '921456876', 0),
+		(5, 'Maria da Trindade Pascoal',	'777666555', 'trindade@iol.pt', '912492054', 0),
+		(6, 'Florindo Teixo Figueirinha', '787676651', 'teixof@gmail.pt', '927147962', 0),
+		(7, 'Carminho Cunha Bastos',  '543234111', 'cbastos@hotmail.pt', '934789246' , 0)
 	;
     
 INSERT INTO Funcionario
