@@ -36,6 +36,12 @@ ORDER BY tot DESC
 LIMIT 1;
 -- Media dos tempos de atendimento
 SELECT sec_to_time(avg(TIME_TO_SEC(t))) from(
-										SELECT timediff(TIME(data_f),TIME(data_s)) as t from fatura) as q;
+										SELECT timediff(data_f,data_s) as t from fatura) as q;
                                         
-select time_to_sec(t) from (SELECT timediff(TIME(data_f),TIME(data_s)) as t from fatura) as q;
+-- Media dos tempos de atendimento por hora
+SELECT hour(data_s) as h, timediff(data_f,data_s) as t from fatura
+ORDER BY h;
+
+select h, sec_to_time(avg(TIME_TO_SEC(t))) from (SELECT hour(data_s) as h, timediff(data_f,data_s) as t from fatura) as q1
+GROUP BY h
+ORDER BY h;
