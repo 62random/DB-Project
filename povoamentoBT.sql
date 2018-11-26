@@ -1,24 +1,24 @@
 USE farmacia;
 
 INSERT INTO Cliente
-	(id, nome, nif, email, tlmv, pontos)
+	(id, nome, nif, email, tlmv, pontos, pass)
 	VALUES 
-		(1, 'João da Costa e Campos',  '123456789', 'jcc@gmail.pt' , '912345678', 0),
-		(2, 'Josefina Vivida da Paz', '122133144', 'josefina@hotmail.pt', '910987654', 0),
-		(3, 'Ana Santa do Carmo', '876543298', 'saca@gmail.pt','961234567', 0),
-		(4, 'Jesualdo Peza-Mor',  '564352786', 'pezamor@hotmail.pt', '921456876', 0),
-		(5, 'Maria da Trindade Pascoal',	'777666555', 'trindade@iol.pt', '912492054', 0),
-		(6, 'Florindo Teixo Figueirinha', '787676651', 'teixof@gmail.pt', '927147962', 0),
-		(7, 'Carminho Cunha Bastos',  '543234111', 'cbastos@hotmail.pt', '934789246' , 0)
+		(1, 'João da Costa e Campos',  '123456789', 'jcc@gmail.pt' , '912345678', 0, 'd1925c0ef3f6c8c16ab291510383617148a53979'),
+		(2, 'Josefina Vivida da Paz', '122133144', 'josefina@hotmail.pt', '910987654', 0, '1eab06cab995dfeb32b6b7c709b8a6c62cabacfe'),
+		(3, 'Ana Santa do Carmo', '876543298', 'saca@gmail.pt','961234567', 0, 'd7b4fc529d86c836c9720c77287611765f7124c5'),
+		(4, 'Jesualdo Peza-Mor',  '564352786', 'pezamor@hotmail.pt', '921456876', 0, 'c29dd6c83b67a1d6d3b28588a1f068b68689aa1d'),
+		(5, 'Maria da Trindade Pascoal',	'777666555', 'trindade@iol.pt', '912492054', 0, 'd9f02d46be016f1b301f7c02a4b9c4ebe0dde7ef'),
+		(6, 'Florindo Teixo Figueirinha', '787676651', 'teixof@gmail.pt', '927147962', 0, '6ed32edf4e92ab3c0a4dc6f90242953c344051ad'),
+		(7, 'Carminho Cunha Bastos',  '543234111', 'cbastos@hotmail.pt', '934789246' , 0, 'a43f9fc96f67c191be1a430b30da0129bf1c98af')
 	;
     
 INSERT INTO Funcionario
-	(id, nome, tlmv, niss, iban, ordenado, cedula)
+	(id, nome, tlmv, niss, iban, ordenado, cedula, pass)
 	VALUES 
-		(1, 'Mariana Pereira Fernandes', '910851961', '12345678909', 'PT 50 2732 5162 12345678909', 750.27, '12345'),
-		(2, 'Pedro Jorge Rito Lima', '934567123', '14385639201',  'PT 50 2751 3262 76598707612', 800.32, '54321'),
-		(3, 'Alexandre de Freitas Ferreira Pacheco', '932765078', '65824809821',  'PT 50 3227 6251 16549867803', 510.51, '74509'),
-		(4, 'José Pedro Milhazes Carvalho Pinto',  '963789245' , '18746783601', 'PT 50 6227 3251 87637898710', 800.62, '76912' )
+		(1, 'Mariana Pereira Fernandes', '910851961', '12345678909', 'PT 50 2732 5162 12345678909', 750.27, '12345', '608e01334f5575f10813efa40ce0102f2dc0a75e'),
+		(2, 'Pedro Jorge Rito Lima', '934567123', '14385639201',  'PT 50 2751 3262 76598707612', 800.32, '54321', '3cfa1c281281ffe4f5db2ccfbe7a17f8a9479808'),
+		(3, 'Alexandre de Freitas Ferreira Pacheco', '932765078', '65824809821',  'PT 50 3227 6251 16549867803', 510.51, '74509','90fb6e73d036fa2ee3dde303538c4e4a12277bbc'),
+		(4, 'José Pedro Milhazes Carvalho Pinto',  '963789245' , '18746783601', 'PT 50 6227 3251 87637898710', 800.62, '76912', '679951a24ba997db7355e6b63d66ea51c4a1a5ba' )
 	;
 
 INSERT INTO Medicamento
