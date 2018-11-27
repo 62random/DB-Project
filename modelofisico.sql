@@ -15,119 +15,127 @@ CREATE SCHEMA IF NOT EXISTS `farmacia` DEFAULT CHARACTER SET utf8 ;
 USE `farmacia` ;
 
 -- -----------------------------------------------------
--- Table `farmacia`.`Funcionario`
+-- Table `farmacia`.`cliente`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `farmacia`.`Funcionario` (
-  `id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `farmacia`.`cliente` (
+  `id` INT(11) NOT NULL,
+  `nome` VARCHAR(75) NOT NULL,
+  `nif` VARCHAR(9) NULL DEFAULT NULL,
+  `email` VARCHAR(50) NULL DEFAULT NULL,
+  `tlmv` VARCHAR(20) NULL DEFAULT NULL,
+  `pontos` INT(11) NOT NULL,
+  `pass` VARCHAR(40) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `farmacia`.`funcionario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `farmacia`.`funcionario` (
+  `id` INT(11) NOT NULL,
   `nome` VARCHAR(75) NOT NULL,
   `tlmv` VARCHAR(20) NOT NULL,
   `niss` VARCHAR(11) NOT NULL,
   `iban` VARCHAR(32) NOT NULL,
-  `ordenado` FLOAT NOT NULL,
+  `ordenado` DECIMAL(6,2) NOT NULL,
   `cedula` VARCHAR(6) NOT NULL,
+  `pass` VARCHAR(40) NOT NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `farmacia`.`Cliente`
+-- Table `farmacia`.`fatura`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `farmacia`.`Cliente` (
-  `id` INT NOT NULL,
-  `nome` VARCHAR(75) NOT NULL,
-  `nif` VARCHAR(9) NULL,
-  `email` VARCHAR(50) NULL,
-  `tlmv` VARCHAR(20) NULL,
-  `pontos` INT NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `farmacia`.`Fatura`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `farmacia`.`Fatura` (
-  `id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `farmacia`.`fatura` (
+  `id` INT(11) NOT NULL,
   `data_f` DATETIME NOT NULL,
   `data_s` DATETIME NOT NULL,
-  `pontos_r` INT NOT NULL,
-  `pontos_u` INT NOT NULL,
-  `desconto` FLOAT NOT NULL,
-  `total` FLOAT NOT NULL,
-  `id_func` INT NOT NULL,
-  `id_c` INT NOT NULL,
+  `pontos_r` INT(11) NOT NULL,
+  `pontos_u` INT(11) NOT NULL,
+  `desconto` DECIMAL(6,2) NOT NULL,
+  `total` DECIMAL(6,2) NOT NULL,
+  `id_func` INT(11) NOT NULL,
+  `id_c` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `id_idx` (`id_func` ASC) VISIBLE,
   INDEX `id_cliente_idx` (`id_c` ASC) VISIBLE,
-  CONSTRAINT `id_func`
-    FOREIGN KEY (`id_func`)
-    REFERENCES `farmacia`.`Funcionario` (`id`)
-    ON DELETE RESTRICT
-    ON UPDATE CASCADE,
   CONSTRAINT `id_cliente`
     FOREIGN KEY (`id_c`)
-    REFERENCES `farmacia`.`Cliente` (`id`)
+    REFERENCES `farmacia`.`cliente` (`id`)
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE,
+  CONSTRAINT `id_func`
+    FOREIGN KEY (`id_func`)
+    REFERENCES `farmacia`.`funcionario` (`id`)
     ON DELETE RESTRICT
     ON UPDATE CASCADE)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `farmacia`.`Fatura_Receita`
+-- Table `farmacia`.`medicamento`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `farmacia`.`Fatura_Receita` (
-  `id_fatura` INT NOT NULL,
-  `cod_receita` INT NOT NULL,
-  PRIMARY KEY (`id_fatura`, `cod_receita`),
-  CONSTRAINT `id_fatura`
-    FOREIGN KEY (`id_fatura`)
-    REFERENCES `farmacia`.`Fatura` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `farmacia`.`Medicamento`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `farmacia`.`Medicamento` (
-  `id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `farmacia`.`medicamento` (
+  `id` INT(11) NOT NULL,
   `des` VARCHAR(45) NOT NULL,
-  `qt` FLOAT NOT NULL,
+  `qt` DECIMAL(6,2) NOT NULL,
   `un` VARCHAR(5) NOT NULL,
   `formato` VARCHAR(45) NOT NULL,
   `categoria` VARCHAR(45) NOT NULL,
-  `preco` FLOAT NOT NULL,
-  `stock` INT NOT NULL,
+  `preco` DECIMAL(6,2) NOT NULL,
+  `stock` INT(11) NOT NULL,
   `lab` VARCHAR(45) NOT NULL,
   `receita` CHAR(1) NOT NULL,
   `pos` CHAR(3) NOT NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `farmacia`.`Fatura_Med`
+-- Table `farmacia`.`fatura_med`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `farmacia`.`Fatura_Med` (
-  `id_f` INT NOT NULL,
-  `id_m` INT NOT NULL,
-  `qt_v` INT NOT NULL,
-  `preco_v` FLOAT NOT NULL,
-  `preco_l` FLOAT NOT NULL,
+CREATE TABLE IF NOT EXISTS `farmacia`.`fatura_med` (
+  `id_f` INT(11) NOT NULL,
+  `id_m` INT(11) NOT NULL,
+  `qt_v` INT(11) NOT NULL,
+  `preco_v` DECIMAL(6,2) NOT NULL,
+  `preco_l` DECIMAL(6,2) NOT NULL,
   PRIMARY KEY (`id_f`, `id_m`),
   INDEX `id_m_idx` (`id_m` ASC) VISIBLE,
   CONSTRAINT `id_f`
     FOREIGN KEY (`id_f`)
-    REFERENCES `farmacia`.`Fatura` (`id`)
+    REFERENCES `farmacia`.`fatura` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `id_m`
     FOREIGN KEY (`id_m`)
-    REFERENCES `farmacia`.`Medicamento` (`id`)
+    REFERENCES `farmacia`.`medicamento` (`id`)
     ON DELETE RESTRICT
     ON UPDATE CASCADE)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `farmacia`.`fatura_receita`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `farmacia`.`fatura_receita` (
+  `id_fatura` INT(11) NOT NULL,
+  `cod_receita` INT(11) NOT NULL,
+  PRIMARY KEY (`id_fatura`, `cod_receita`),
+  CONSTRAINT `id_fatura`
+    FOREIGN KEY (`id_fatura`)
+    REFERENCES `farmacia`.`fatura` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
