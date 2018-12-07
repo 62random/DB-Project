@@ -4,6 +4,7 @@ GRANT SELECT ON medicamento.* TO 'funcionario'@'localhost';
 GRANT SELECT,INSERT ON fatura.* TO 'funcionario'@'localhost';
 GRANT SELECT,INSERT ON fatura_receita.* TO 'funcionario'@'localhost';
 GRANT SELECT,INSERT ON fatura_med.* TO 'funcionario'@'localhost';
+GRANT SELECT ON funcionario.* TO 'funcionario'@'localhost';
 
 
 CREATE USER 'prometeu'@'localhost' IDENTIFIED BY 'promsbt';
