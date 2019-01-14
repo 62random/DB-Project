@@ -3,7 +3,7 @@ USE farmacia;
 INSERT INTO Cliente
 	(id, nome, nif, email, tlmv, pontos, pass)
 	VALUES 
-		(1, 'João da Costa e Campos',  '123456789', 'jcc@gmail.pt' , '912345678', 0, 'd1925c0ef3f6c8c16ab291510383617148a53979'),
+		(1, 'Joao da Costa e Campos',  '123456789', 'jcc@gmail.pt' , '912345678', 0, 'd1925c0ef3f6c8c16ab291510383617148a53979'),
 		(2, 'Josefina Vivida da Paz', '122133144', 'josefina@hotmail.pt', '910987654', 0, '1eab06cab995dfeb32b6b7c709b8a6c62cabacfe'),
 		(3, 'Ana Santa do Carmo', '876543298', 'saca@gmail.pt','961234567', 0, 'd7b4fc529d86c836c9720c77287611765f7124c5'),
 		(4, 'Jesualdo Peza-Mor',  '564352786', 'pezamor@hotmail.pt', '921456876', 0, 'c29dd6c83b67a1d6d3b28588a1f068b68689aa1d'),
@@ -18,17 +18,17 @@ INSERT INTO Funcionario
 		(1, 'Mariana Pereira Fernandes', '910851961', '12345678909', 'PT 50 2732 5162 12345678909', 750.27, '12345', '608e01334f5575f10813efa40ce0102f2dc0a75e'),
 		(2, 'Pedro Jorge Rito Lima', '934567123', '14385639201',  'PT 50 2751 3262 76598707612', 800.32, '54321', '3cfa1c281281ffe4f5db2ccfbe7a17f8a9479808'),
 		(3, 'Alexandre de Freitas Ferreira Pacheco', '932765078', '65824809821',  'PT 50 3227 6251 16549867803', 510.51, '74509','90fb6e73d036fa2ee3dde303538c4e4a12277bbc'),
-		(4, 'José Pedro Milhazes Carvalho Pinto',  '963789245' , '18746783601', 'PT 50 6227 3251 87637898710', 800.62, '76912', '679951a24ba997db7355e6b63d66ea51c4a1a5ba' )
+		(4, 'Jose Pedro Milhazes Carvalho Pinto',  '963789245' , '18746783601', 'PT 50 6227 3251 87637898710', 800.62, '76912', '679951a24ba997db7355e6b63d66ea51c4a1a5ba' )
 	;
 
 INSERT INTO Medicamento
   	(id, des, qt, un, formato, categoria, preco, stock, lab, receita, pos)
   	VALUES
-		(1,'Ben-U-Ron 500', 20,'un','granulado','Analgésico',2.51, 21, 'Laboratório do Rio Ave', 'N', 'A12'),
-		(2,'Claritromicina',14,'un','comprimido','Antibiótico',4.99, 21, 'Laboratório do Rio Ave', 'N', 'H35'),
-		(3,'Brufen',200,'ml','xarope','Analgésico',4.32, 22, 'Laboratório do Chile', 'N', 'L24'),
-		(4,'Cefotaxima',20,'un','comprimido','Antibiótico',8.51, 22, 'Laboratório Ahrro', 'S', 'D26'),
-		(5,'Fotexina I.M.',10,'un','comprimido','Antibiótico',10.20, 21, 'Vitalis', 'S', 'L52'),
+		(1,'Ben-U-Ron 500', 20,'un','granulado','Analgesico',2.51, 21, 'Laboratorio do Rio Ave', 'N', 'A12'),
+		(2,'Claritromicina',14,'un','comprimido','Antibiotico',4.99, 21, 'Laboratorio do Rio Ave', 'N', 'H35'),
+		(3,'Brufen',200,'ml','xarope','Analgesico',4.32, 22, 'Laboratorio do Chile', 'N', 'L24'),
+		(4,'Cefotaxima',20,'un','comprimido','Antibiotico',8.51, 22, 'Laboratorio Ahrro', 'S', 'D26'),
+		(5,'Fotexina I.M.',10,'un','comprimido','Antibiotico',10.20, 21, 'Vitalis', 'S', 'L52'),
         (6, 'Sinvastatina',30,'un','comprimido','Estatina',16.45,25,'Mylan','S','K23')
     ;
 
@@ -106,5 +106,3 @@ INSERT INTO Fatura_Receita
         (15,12)        
 	;
     
-
-
